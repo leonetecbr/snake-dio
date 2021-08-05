@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="css/index.css">
+  <title>Jogo da cobrinha</title>
+</head>
+<body>
+  <div id="helper">
+    <h2>Ajuda</h2>
+    <h3>Como funciona o jogo ?</h3>
+    <p>O jogo consite em fazer com que a cobra coma cada vez mais comida fazendo com que ela cresca, mas evitando os obstáculos (bombas e paredes) e bater na própria cobra.</p>
+    <h3>O que cada cor significa ?</h3>
+    <p><span class="red">Comida</span> - coma para aumentar sua pontuação e fazer com que a cobra cresça, a comida está representada pela cor vermelha.</p>
+    <p><span class="grey">Bombas</span> - Evite-as, elas vão diminuir sua pontuação e o tamanho da sua cobra, as bombas estão representandas pela cor cinza.</p>
+    <p><span class="black">Paredes</span> - Fuga delas, elas vão matar sua cobra instantaneamente, as paredes estão representandas pela cor preta.</p>
+    <div class="center"><button onclick="closeHelp()">Fechar</button></div>
+  </div>
+	<h1>Jogo da cobrinha<small id="help"><i class="bi bi-question"></i></small></h1>
+	<div id="score">
+	  <div>Maior pontuação: <span id="highscore">0</span></div><div>Pontuação: <span id="scorenow">0</span></div>
+	</div>
+	<canvas id="snake" width="512" height="512"></canvas>
+	<div id="keyboard">
+	  <div class="line">
+  	  <i onclick="movemobile(this)" class="bi bi-arrow-up" data-direction="38"></i>
+    </div>
+    <div class="line">
+      <i onclick="movemobile(this)" class="bi bi-arrow-left" data-direction="37"></i>
+      <i class="bi bi-play-fill" onclick="iniciar()" id="play"></i>
+      <i class="bi bi-pause-fill" onclick="pausar()" id="pause"></i>
+      <i onclick="movemobile(this)" class="bi bi-arrow-right" data-direction="39"></i>
+    </div>
+	  <div class="line">
+      <i onclick="movemobile(this)" class="bi bi-arrow-down" data-direction="40"></i>
+	  </div>
+	</div>
+  <script src="js/index.js"></script>
+</body>
+</html>
