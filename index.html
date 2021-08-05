@@ -5,37 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <link rel="stylesheet" href="css/index.css">
   <title>Jogo da cobrinha</title>
+  <meta name="description" content="Jogue um dos jogos mais antigos do mundo tecnológico, o jogo da cobrinha!">
+  <meta name="og:description" content="Jogue um dos jogos mais antigos do mundo tecnológico, o jogo da cobrinha!">
+  <meta name="keywords" content="jogo, jogo da cobra, jogo da cobrinha">
+  <meta name="robots" content="index, flow">
+  <meta name="author" content="Leone Oliveira">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Leone Oliveira" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Cobrinha"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="msapplication-TileColor" content="#2c8b2c"/>
+  <meta name="application-name" content="Cobrinha">
+  <meta property="og:url" content="https://leone.tec.br/snake" />
 </head>
 <body>
-  <div id="helper">
-    <h2>Ajuda</h2>
-    <h3>Como funciona o jogo ?</h3>
-    <p>O jogo consite em fazer com que a cobra coma cada vez mais comida fazendo com que ela cresca, mas evitando os obstáculos (bombas e paredes) e bater na própria cobra.</p>
-    <h3>O que cada cor significa ?</h3>
-    <p><span class="red">Comida</span> - coma para aumentar sua pontuação e fazer com que a cobra cresça, a comida está representada pela cor vermelha.</p>
-    <p><span class="grey">Bombas</span> - Evite-as, elas vão diminuir sua pontuação e o tamanho da sua cobra, as bombas estão representandas pela cor cinza.</p>
-    <p><span class="black">Paredes</span> - Fuga delas, elas vão matar sua cobra instantaneamente, as paredes estão representandas pela cor preta.</p>
-    <div class="center"><button onclick="closeHelp()">Fechar</button></div>
-  </div>
-	<h1>Jogo da cobrinha<small id="help"><i class="bi bi-question"></i></small></h1>
-	<div id="score">
-	  <div>Maior pontuação: <span id="highscore">0</span></div><div>Pontuação: <span id="scorenow">0</span></div>
-	</div>
-	<canvas id="snake" width="512" height="512"></canvas>
-	<div id="keyboard">
-	  <div class="line">
-  	  <i onclick="movemobile(this)" class="bi bi-arrow-up" data-direction="38"></i>
+  <header>
+    <div id="helper">
+      <h2>Ajuda</h2>
+      <h3>Como funciona o jogo ?</h3>
+      <p>O jogo consite em fazer com que a cobra coma cada vez mais comida fazendo com que ela cresca, mas evitando os obstáculos (bombas e paredes) e bater na própria cobra.</p>
+      <h3>Como controlo a cobra ?</h3>
+      <p>Você pode controla-lá usando as teclas ↑ ou W, → ou D, ↓ ou S, ← ou A e Enter (para pausar ou  dar play), mas também tem a possibilidade de usar o teclado virtual, caso prefira.</p>
+      <h3>O que cada cor significa ?</h3>
+      <p><span class="red">Comida</span> - coma para aumentar sua pontuação e fazer com que a cobra cresça, a comida está representada pela cor vermelha.</p>
+      <p><span class="grey">Bombas</span> - Evite-as, elas vão diminuir sua pontuação e o tamanho da sua cobra, as bombas estão representandas pela cor cinza.</p>
+      <p><span class="black">Paredes</span> - Fuga delas, elas vão matar sua cobra instantaneamente, as paredes estão representandas pela cor preta.</p>
+      <div class="center"><button onclick="closeHelp()">Fechar</button></div>
     </div>
-    <div class="line">
-      <i onclick="movemobile(this)" class="bi bi-arrow-left" data-direction="37"></i>
-      <i class="bi bi-play-fill" onclick="iniciar()" id="play"></i>
-      <i class="bi bi-pause-fill" onclick="pausar()" id="pause"></i>
-      <i onclick="movemobile(this)" class="bi bi-arrow-right" data-direction="39"></i>
-    </div>
-	  <div class="line">
-      <i onclick="movemobile(this)" class="bi bi-arrow-down" data-direction="40"></i>
-	  </div>
-	</div>
+  	<h1>Jogo da cobrinha<small id="help"><i class="bi bi-question"></i></small></h1>
+	</header>
+	<main>
+  	<div id="score">
+  	  <div>Maior pontuação: <span id="highscore">0</span></div><div>Pontuação: <span id="scorenow">0</span></div>
+  	</div>
+  	<canvas id="snake" width="512" height="512"></canvas>
+  	<div id="keyboard">
+  	  <div class="line">
+    	  <i onclick="movemobile(this)" class="bi bi-arrow-up" data-direction="38"></i>
+      </div>
+      <div class="line">
+        <i onclick="movemobile(this)" class="bi bi-arrow-left" data-direction="37"></i>
+        <i class="bi bi-play-fill" onclick="iniciar()" id="play"></i>
+        <i class="bi bi-pause-fill" onclick="pausar()" id="pause"></i>
+        <i onclick="movemobile(this)" class="bi bi-arrow-right" data-direction="39"></i>
+      </div>
+  	  <div class="line">
+        <i onclick="movemobile(this)" class="bi bi-arrow-down" data-direction="40"></i>
+  	  </div>
+  	</div>
+	</main>
+	<footer>
+	  
+	</footer>
   <script src="js/index.js"></script>
 </body>
 </html>

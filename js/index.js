@@ -1,6 +1,6 @@
 let canvas = document.getElementById('snake');
 let context = canvas.getContext('2d');
-let box = 16, snake = [{x: 16 * box,y: 16 * box}], direction = 'right';
+let box = 16, snake = [{x: 16 * box,y: 16 * box}], direction = 'right', status = 'pause';
 let jogo, foods = [], score = 0, food = 5, highscore = 0, blocks = [], block = 2, bombs =[], bomb = 5;
 
 function createBG(){
@@ -18,10 +18,17 @@ function createSnake (){
 document.addEventListener('keydown', move);
 
 function move(event) {
-  if(event.keyCode == 37 && direction != 'right') direction = 'left';
-  if(event.keyCode == 38 && direction != 'down') direction = 'up';
-  if(event.keyCode == 39 && direction != 'left') direction = 'right';
-  if(event.keyCode == 40 && direction != 'up') direction = 'down';
+  if((event.keyCode == 37  || event.keyCode == 65) && direction != 'right') direction = 'left';
+  else if((event.keyCode == 38 || event.keyCode == 87) && direction != 'down') direction = 'up';
+  else if((event.keyCode == 39 || event.keyCode == 68) && direction != 'left') direction = 'right';
+  else if((event.keyCode == 40  || event.keyCode == 83) && direction != 'up') direction = 'down';
+  else if(event.keyCode == 13 || event.keyCode == 0 || event.keyCode == 32){
+    if (status == 'pause') {
+      iniciar();
+    }else{
+      pausar();
+    }
+  }
 }
 
 function generateFoods(locale = 'all') {
@@ -201,12 +208,14 @@ function start(){
 function pausar(){
   document.getElementById('pause').style.display = 'none';
   document.getElementById('play').style.display = 'block';
+  status = 'pause';
   clearInterval(jogo);
 }
 
 function iniciar(){
   document.getElementById('play').style.display = 'none';
   document.getElementById('pause').style.display = 'block';
+  status = 'play';
   jogo = setInterval(update, 200);
 }
 
