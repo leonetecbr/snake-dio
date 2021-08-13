@@ -4,11 +4,11 @@
 #snake{height: 100vw;}
 #keyboard{display: flex;padding: 15px;align-items: center;flex-wrap: wrap;}
 #keyboard > div{width: 100%;}
-.line, #score{display: flex;align-items: center;justify-content: center;margin-bottom: 15px;}
+.line, #score{display: flex;align-items: center;justify-content: center;margin-bottom: 30px;}
 .line:last-child{margin-bottom: 0;}
-#play, #pause{margin-left: 40px;margin-right: 40px;}
+#play, #pause{margin-left: 30px;margin-right: 30px;}
 #score{font-weight: bolder;justify-content: space-between;padding: 10px;}
-.line i{border: 1px solid #000;padding: 2px;font-size: 45px;}
+.line i{border: 1px solid #000;padding: 2.5px 5px;font-size: 45px;}
 #pause{display: none;}
 h1, h2{text-align: center;color: #2c8b2c;}
 #help{font-size: 12pt;position: relative;border: 1px solid #2c8b2c;border-radius: 10px;padding: 0 1px;bottom: 10px;left: 5px;}

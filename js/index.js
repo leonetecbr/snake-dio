@@ -15,6 +15,10 @@ function createSnake (){
   }
 }
 
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js', {scope: './'});
+}
+
 document.addEventListener('keydown', move);
 
 function move(event) {
