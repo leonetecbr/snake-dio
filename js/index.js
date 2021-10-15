@@ -1,6 +1,6 @@
 let canvas = document.getElementById('snake');
 let context = canvas.getContext('2d');
-let box = 16, snake = [{x: 16 * box,y: 16 * box}], direction = 'right', status = 'pause';
+let box = 16, snake = [{x: 16 * box,y: 16 * box}], direction = 'right', game = 'pause';
 let jogo, foods = [], score = 0, food = 5, highscore = 0, blocks = [], block = 2, bombs =[], bomb = 5;
 
 function createBG(){
@@ -27,7 +27,7 @@ function move(event) {
   else if((event.keyCode == 39 || event.keyCode == 68) && direction != 'left') direction = 'right';
   else if((event.keyCode == 40  || event.keyCode == 83) && direction != 'up') direction = 'down';
   else if(event.keyCode == 13 || event.keyCode == 0 || event.keyCode == 32){
-    if (status == 'pause') {
+    if (game == 'pause') {
       iniciar();
     }else{
       pausar();
@@ -43,6 +43,16 @@ function generateFoods(locale = 'all') {
         x: Math.floor(Math.random() * (31 - 1) + 1) * box,
         y: Math.floor(Math.random() * (31 - 1) + 1) * box
       };
+      
+      for(var a = 0; a < block.length; a++){
+        while((coordenadas.x == bombs[a].x && coordenadas.y == bombs[a].y) || (coordenadas.x == blocks[a].x && coordenadas.y == blocks[a].y)){
+          var coordenadas = {
+            x: Math.floor(Math.random() * (31 - 1) + 1) * box,
+            y: Math.floor(Math.random() * (31 - 1) + 1) * box
+          };
+        }
+      }
+
       foods.push(coordenadas);
     }
   }else{
@@ -58,6 +68,16 @@ function generateBlocks() {
       x: Math.floor(Math.random() * (31 - 1) + 1) * box,
       y: Math.floor(Math.random() * (31 - 1) + 1) * box
     };
+
+    for(var a = 0; a < bombs.length; a++){
+      while(coordenadas.x == bombs[a].x && coordenadas.y == bombs[a].y){
+        var coordenadas = {
+          x: Math.floor(Math.random() * (31 - 1) + 1) * box,
+          y: Math.floor(Math.random() * (31 - 1) + 1) * box
+        };
+      }
+    }
+
     blocks.push(coordenadas);
   }
 }
@@ -212,14 +232,14 @@ function start(){
 function pausar(){
   document.getElementById('pause').style.display = 'none';
   document.getElementById('play').style.display = 'block';
-  status = 'pause';
+  game = 'pause';
   clearInterval(jogo);
 }
 
 function iniciar(){
   document.getElementById('play').style.display = 'none';
   document.getElementById('pause').style.display = 'block';
-  status = 'play';
+  game = 'play';
   jogo = setInterval(update, 200);
 }
 
