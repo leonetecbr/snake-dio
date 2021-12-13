@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <link rel="stylesheet" href="css/index.css">
   <title>Jogo da cobrinha</title>
   <meta name="description" content="Jogue um dos jogos mais antigos do mundo tecnológico, o jogo da cobrinha!">
@@ -47,16 +48,52 @@
   	  <canvas id="snake" width="512" height="512"></canvas>
       <div id="keyboard">
   	  <div class="line">
-    	  <i onclick="movemobile(this)" class="bi bi-arrow-up" data-direction="38"></i>
+        <div id="up" onclick="movemobile(this)" data-direction="38">
+          <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-arrow-up-circle-fill"
+            viewBox="0 0 16 16">
+            <path
+              d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />
+          </svg>
+        </div>
       </div>
-      <div class="line">
-        <i onclick="movemobile(this)" class="bi bi-arrow-left" data-direction="37"></i>
-        <i class="bi bi-play-fill" onclick="iniciar()" id="play"></i>
-        <i class="bi bi-pause-fill" onclick="pausar()" id="pause"></i>
-        <i onclick="movemobile(this)" class="bi bi-arrow-right" data-direction="39"></i>
+      <div class="line d-flex justify-content-between">
+        <div id="left" onclick="movemobile(this)" data-direction="37">
+          <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-arrow-left-circle-fill"
+            viewBox="0 0 16 16">
+            <path
+              d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+          </svg>
+        </div>
+        <div id="play" onclick="iniciar()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-play-circle-fill"
+            viewBox="0 0 16 16">
+            <path
+              d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z" />
+          </svg>
+        </div>
+        <div id="pause" onclick="pausar()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-pause-circle-fill"
+            viewBox="0 0 16 16">
+            <path
+              d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5zm3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5z" />
+          </svg>
+        </div>
+        <div id="rigth" onclick="movemobile(this)" data-direction="39">
+          <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-arrow-right-circle-fill"
+            viewBox="0 0 16 16">
+            <path
+              d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
+          </svg>
+        </div>
       </div>
   	  <div class="line">
-        <i onclick="movemobile(this)" class="bi bi-arrow-down" data-direction="40"></i>
+        <div id="down" onclick="movemobile(this)" data-direction="40">
+          <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-arrow-down-circle-fill"
+            viewBox="0 0 16 16">
+            <path
+              d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z" />
+          </svg>
+        </div>
   	  </div>
   	</div>
     </div>

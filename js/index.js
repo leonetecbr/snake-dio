@@ -9,7 +9,7 @@ function createBG(){
 }
 
 function createSnake (){
-  for(i = 0; i < snake.length; i++){
+  for(let i = 0; i < snake.length; i++){
     context.fillStyle = 'green';
     context.fillRect(snake[i].x, snake[i].y, box, box);
   }
@@ -38,15 +38,15 @@ function move(event) {
 function generateFoods(locale = 'all') {
   if (locale == 'all') {
     foods = [];
-    for (var i = 0; i < food; i++) {
-      var coordenadas = {
+    for (let i = 0; i < food; i++) {
+      let coordenadas = {
         x: Math.floor(Math.random() * (31 - 1) + 1) * box,
         y: Math.floor(Math.random() * (31 - 1) + 1) * box
       };
       
-      for(var a = 0; a < block.length; a++){
+      for(let a = 0; a < block.length; a++){
         while((coordenadas.x == bombs[a].x && coordenadas.y == bombs[a].y) || (coordenadas.x == blocks[a].x && coordenadas.y == blocks[a].y)){
-          var coordenadas = {
+          coordenadas = {
             x: Math.floor(Math.random() * (31 - 1) + 1) * box,
             y: Math.floor(Math.random() * (31 - 1) + 1) * box
           };
@@ -63,15 +63,15 @@ function generateFoods(locale = 'all') {
 
 function generateBlocks() {
   blocks = [];
-  for (var i = 0; i < block; i++) {
-    var coordenadas = {
+  for (let i = 0; i < block; i++) {
+    let coordenadas = {
       x: Math.floor(Math.random() * (31 - 1) + 1) * box,
       y: Math.floor(Math.random() * (31 - 1) + 1) * box
     };
 
-    for(var a = 0; a < bombs.length; a++){
+    for(let a = 0; a < bombs.length; a++){
       while(coordenadas.x == bombs[a].x && coordenadas.y == bombs[a].y){
-        var coordenadas = {
+        coordenadas = {
           x: Math.floor(Math.random() * (31 - 1) + 1) * box,
           y: Math.floor(Math.random() * (31 - 1) + 1) * box
         };
@@ -85,8 +85,8 @@ function generateBlocks() {
 function generateBombs(locale = 'all') {
   if (locale == 'all') {
     bombs = [];
-    for (var i = 0; i < bomb; i++) {
-      var coordenadas = {
+    for (let i = 0; i < bomb; i++) {
+      let coordenadas = {
         x: Math.floor(Math.random() * (31 - 1) + 1) * box,
         y: Math.floor(Math.random() * (31 - 1) + 1) * box
       };
@@ -125,6 +125,8 @@ function pointPlus() {
 }
 
 function update() {
+  let eat = false, position;
+
   let snakeX = snake[0].x;
   let snakeY = snake[0].y;
   
@@ -138,21 +140,21 @@ function update() {
   else if (direction == 'up') snakeY -= box;
   else if (direction == 'down') snakeY += box;
 
-  for(i = 1; i < snake.length; i++){
+  for(let i = 1; i < snake.length; i++){
     if(snakeX == snake[i].x && snakeY == snake[i].y){
       gameOver();
       return false;
     }
   }
   
-  for(i = 0; i < blocks.length; i++){
+  for(let i = 0; i < blocks.length; i++){
     if(snakeX == blocks[i].x && snakeY == blocks[i].y){
       gameOver();
       return false;
     }
   }
   
-  for(i = 0; i < bombs.length; i++){
+  for(let i = 0; i < bombs.length; i++){
     if(snakeX == bombs[i].x && snakeY == bombs[i].y){
       generateBombs(i);
       if (!pointMinus()){
@@ -161,9 +163,7 @@ function update() {
     }
   }
   
-  var eat = false, position;
-  
-  for (var i=0;i<foods.length; i++) {
+  for (let i=0;i<foods.length; i++) {
     if(snakeX == foods[i].x && snakeY == foods[i].y){
       eat = true;
       position = i;
@@ -191,9 +191,9 @@ function update() {
   drawBlocks();
 }
 
-function movemobile(element) {
+function movemobile(e) {
   let action = {
-    keyCode: element.getAttribute('data-direction')
+    keyCode: e.getAttribute('data-direction')
   };
   move(action);
 }

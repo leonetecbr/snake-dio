@@ -1,4 +1,4 @@
-let staticCacheName = 'v1.0.2';
+let staticCacheName = 'v1.0.3';
 
 self.addEventListener('install', function(event) {
   event.waitUntil(
@@ -10,10 +10,10 @@ self.addEventListener('install', function(event) {
           'index.html',
           'manifest.json'
         ]
-      );
+      )
     })
-  );
-});
+  )
+})
 
 this.addEventListener('activate', event => {
   event.waitUntil(
@@ -23,20 +23,22 @@ this.addEventListener('activate', event => {
           .filter(cacheName => (cacheName.startsWith('v')))
           .filter(cacheName => (cacheName !== staticCacheName))
           .map(cacheName => caches.delete(cacheName))
-      );
+      )
     })
-  );
-});
+  )
+})
 
-self.addEventListener('fetch', function(event) {
+self.addEventListener('fetch', function (event) {
   event.respondWith(
-    caches.open(staticCacheName).then(function(cache) {
-      return cache.match(event.request).then(function (response) {
-        return response || fetch(event.request).then(function(response) {
-          cache.put(event.request, response.clone());
-          return response;
-        });
-      });
-    })
-  );
-});
+    caches.match(event.request)
+      .then(function (response) {
+        if (response) {
+          return response
+        }
+
+        let fetchRequest = event.request.clone()
+
+        return fetch(fetchRequest)
+      })
+  )
+})
