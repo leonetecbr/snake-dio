@@ -39,6 +39,22 @@
       <div class="center"><button onclick="closeHelp()">Fechar</button></div>
     </div>
   	<h1>Jogo da cobrinha<small id="help"><i class="bi bi-question"></i></small></h1>
+    <div class="center mb-3 dropdown" onmousemove="showDropdown()" onmouseout="hideDropdown()">
+      <button id="settings" onclick="showDropdown(true)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sliders"
+          viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3h9.05zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8h2.05zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1h9.05z" />
+        </svg> Dificuldade
+      </button>
+      <div class="dropdown-child">
+        <a href="#muito_facil" onclick="setDifficulty(400)">Muito fácil</a>
+        <a href="#facil" onclick="setDifficulty(200)">Fácil</a>
+        <a href="#medio" onclick="setDifficulty(150)">Médio</a>
+        <a href="#dificil" onclick="setDifficulty(100)">Díficil</a>
+        <a href="#muito_dificil" onclick="setDifficulty(50)">Muito díficil</a>
+      </div>
+    </div>
 	</header>
 	<main>
   	<div id="score">
