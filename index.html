@@ -39,7 +39,7 @@
       <div class="center"><button onclick="closeHelp()">Fechar</button></div>
     </div>
   	<h1>Jogo da cobrinha<small id="help"><i class="bi bi-question"></i></small></h1>
-    <div class="center mb-3 dropdown" onmousemove="showDropdown()" onmouseout="hideDropdown()">
+    <div class="center mb-3 dropdown" onmouseover="showDropdown()" onmouseout="hideDropdown()">
       <button id="settings" onclick="showDropdown(true)">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sliders"
           viewBox="0 0 16 16">
@@ -48,11 +48,11 @@
         </svg> Dificuldade
       </button>
       <div class="dropdown-child">
-        <a href="#muito_facil" onclick="setDifficulty(400)">Muito fácil</a>
-        <a href="#facil" onclick="setDifficulty(200)">Fácil</a>
-        <a href="#medio" onclick="setDifficulty(150)">Médio</a>
-        <a href="#dificil" onclick="setDifficulty(100)">Díficil</a>
-        <a href="#muito_dificil" onclick="setDifficulty(50)">Muito díficil</a>
+        <a href="#muito_facil" onclick="setDifficulty(300)" id="diff-mf" class="diff">Muito fácil</a>
+        <a href="#facil" onclick="setDifficulty(200)" id="diff-f" class="diff">Fácil</a>
+        <a href="#medio" onclick="setDifficulty(150)" id="diff-m" class="diff">Médio</a>
+        <a href="#dificil" onclick="setDifficulty(100)" id="diff-d" class="diff">Díficil</a>
+        <a href="#muito_dificil" onclick="setDifficulty(50)" id="diff-md" class="diff">Muito díficil</a>
       </div>
     </div>
 	</header>

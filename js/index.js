@@ -1,7 +1,7 @@
 let canvas = document.getElementById('snake')
 let context = canvas.getContext('2d')
 let box = 16, snake = [{x: 16 * box,y: 16 * box}], direction = 'right', game = 'pause'
-let jogo, foods = [], score = 0, food = 5, highscore = 0, blocks = [], block = 2, bombs = [], bomb = 5, time = 200, dpd = 0
+let jogo, foods = [], score = 0, food = 5, highscore = 0, blocks = [], block = 2, bombs = [], bomb = 5, time, dpd = 0
 
 function createBG(){
     context.fillStyle = 'lightgreen'
@@ -256,18 +256,51 @@ function gameOver() {
   createSnake()
 }
 
+function clearActives(){
+  let menu = document.querySelectorAll('.diff')
+  for (let item of menu){
+    item.classList.remove('active')
+  }
+}
+
 function setDifficulty(interval){
+  switch (interval) {
+    case 50:
+      clearActives()
+      document.querySelector('#diff-md').classList.add('active')
+      break
+    case 100:
+      clearActives()
+      document.querySelector('#diff-d').classList.add('active')
+      break
+    case 150:
+      clearActives()
+      document.querySelector('#diff-m').classList.add('active')
+      break
+    case 200:
+      clearActives()
+      document.querySelector('#diff-f').classList.add('active')
+      break
+    case 300:
+      clearActives()
+      document.querySelector('#diff-mf').classList.add('active')
+      break
+    default:
+      return false
+  }
   time = interval
+  localStorage.setItem('difficulty', interval)
   if (game === 'play'){
     clearInterval(jogo)
     jogo = setInterval(update, time)
   }
+  dpd++
   hideDropdown()
 }
 
 function showDropdown(click = false){
   let dropdown = document.querySelector('.dropdown-child')
-  if (dropdown.style.display === 'block' && click && dpd % 3 === 0) {
+  if (dropdown.style.display === 'block' && click && ((dpd % 2 === 0 && dpd > 3 ) || dpd === 3)) {
     dropdown.style.display = 'none'
   }else {
     dropdown.style.display = 'block'
@@ -279,6 +312,14 @@ function hideDropdown(){
   let dropdown = document.querySelector('.dropdown-child')
   dropdown.style.display = 'none'
 }
+
+(
+  function (){
+    let difficulty = parseInt(localStorage.getItem('difficulty'))
+    if(!difficulty) difficulty = 200
+    setDifficulty(difficulty)
+  }
+)();
 
 start()
 

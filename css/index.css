@@ -111,6 +111,10 @@ button {
   border: none;
 }
 
+.dropdown-child a.active{
+  background-color: #74d175;
+}
+
 .dropdown-child {
   display: none;
   background-color: lightgreen;
